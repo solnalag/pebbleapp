@@ -11,7 +11,9 @@ ajax({ url: 'http://www.arvsfonden.se/' }, function(data){
 simply.on('singleClick', function(e) {
   if (e.button === 'up') {
     simply.subtitle('Upp');
+    simply.vibe('short');
   } else if (e.button === 'down') {
     simply.subtitle('Ner');
+    simply.vibe('long');
   }
 });
