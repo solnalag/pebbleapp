@@ -1,22 +1,81 @@
 /**
  *
  */
-simply.title('Busstidtabell');
-
-ajax({url: 'http://sl.se/#/Travel/SearchTravelById/Slussen%20(Stockholm)/Brunn%20(V%C3%A4rmd%C3%B6)/9192/4300/null/depart/sv/null/null/null/null/null/null/null/null/false/null/0' }, function(data){
-	//var slussenId = document.getElementById('searchResults');
-	var slussen = data.match(/<div class="result-info">[\s\S]+?<\/div>?/ig)[1];
-	//var slussen = data.match(/<h2>(.*?)<\/h2>/)[1];
-	var strippedSlussen = slussen.replace(/(<([^>]+)>)/ig,"");
-	simply.subtitle(strippedSlussen);
-});
+var url;
+var url2;
 
 simply.on('singleClick', function(e) {
   if (e.button === 'up') {
-    simply.title('Brunn => Slussen');
-    simply.vibe('short');
+    url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=4300';
+        
+    ajax({ url: url, type: 'json' }, function(data) {
+      simply.text({
+        title: data.Departure.Metros.Metro[1].StationName,
+         subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
+         body: data.Departure.Metros.Metro[1].DisplayRow2,
+        });
+    });
+
   } else if (e.button === 'down') {
-    simply.title('Slussen => Brunn');
-    simply.vibe('short');
+  
+    url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=9192';
+    
+  ajax({ url: url, type: 'json' }, function(data) {
+    simply.text({
+      title: data.Departure.Metros.Metro[0].StationName,
+       subtitle: data.Departure.Metros.Metro[0].DisplayRow1,
+       body: data.Departure.Metros.Metro[0].DisplayRow2,
+    });
+    
+});
+    
+  } else {
+url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=4300';
+    
+ajax({ url: url, type: 'json' }, function(data) {
+  simply.text({
+    title: 'Test' + data.Departure.Metros.Metro[1].StationName,
+     subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
+     body: data.Departure.Metros.Metro[1].DisplayRow2,
+    });
+});
   }
+});
+
+simply.on('longClick', function(e) {
+  if (e.button === 'up') {
+    url2 = 'https://api.trafiklab.se/sl/realtid/GetDpsDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=[id]&timeWindow=10';
+        
+    ajax({ url: url2, type: 'json' }, function(data) {
+      simply.text({
+        title: data.DPS.Trams.DpsTram[1].StopAreaName,
+        subtitle: data.DPS.Trams.DpsTram[1].Destination + ' ' + data.DPS.Trams.DpsTram[1].DisplayTime,
+       body: data.DPS.Trams.DpsTram[0].Destination + ' ' + data.DPS.Trams.DpsTram[0].DisplayTime
+        });
+    });
+
+  } else if (e.button === 'down') {
+  
+    url2 = 'https://api.trafiklab.se/sl/realtid/GetDpsDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=[id]&timeWindow=10';
+    
+  ajax({ url: url2, type: 'json' }, function(data) {
+    simply.text({
+      title: data.DPS.Trams.DpsTram[1].StopAreaName,
+      subtitle: data.DPS.Trams.DpsTram[0].Destination + ' ' + data.DPS.Trams.DpsTram[0].DisplayTime,
+       body: data.DPS.Trams.DpsTram[1].Destination + ' ' + data.DPS.Trams.DpsTram[1].DisplayTime
+    });
+    
+});
+    
+  }
+});
+
+url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=[id]';
+    
+ajax({ url: url, type: 'json' }, function(data) {
+  simply.text({
+    title: data.Departure.Metros.Metro[1].StationName,
+     subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
+     body: data.Departure.Metros.Metro[1].DisplayRow2
+    });
 });
