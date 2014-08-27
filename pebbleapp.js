@@ -30,6 +30,7 @@ simply.on('singleClick', function(e) {
       
     });
   }
+});
 //   else {
 // url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=4300';
     
@@ -41,7 +42,7 @@ simply.on('singleClick', function(e) {
 //     });
 // });
 //   }
-});
+
 
 // simply.on('longClick', function(e) {
 //   if (e.button === 'up') {
@@ -79,4 +80,4 @@ simply.on('singleClick', function(e) {
 //      subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
 //      body: data.Departure.Metros.Metro[1].DisplayRow2
 //     });
-});
+//
