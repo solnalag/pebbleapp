@@ -11,7 +11,7 @@ simply.on('singleClick', function(e) {
         
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
-        title: data.CurrentQuery.Summary.Origin,
+        title: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
          //subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
          //body: data.Departure.Metros.Metro[1].DisplayRow2,
         });
