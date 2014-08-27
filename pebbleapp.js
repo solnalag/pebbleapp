@@ -1,18 +1,19 @@
 /**
  *
  */
+// https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8
 var url;
 var url2;
 
 simply.on('singleClick', function(e) {
   if (e.button === 'up') {
-    url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=4300';
+    url = 'https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8';
         
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
-        title: data.Departure.Metros.Metro[1].StationName,
-         subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
-         body: data.Departure.Metros.Metro[1].DisplayRow2,
+        title: data.CurrentQuery.Summary.Origin.#text,
+         //subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
+         //body: data.Departure.Metros.Metro[1].DisplayRow2,
         });
     });
 
