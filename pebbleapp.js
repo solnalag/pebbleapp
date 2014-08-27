@@ -12,8 +12,8 @@ simply.on('singleClick', function(e) {
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
         title: 'Från Brunn',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-        subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-        body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+        //subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+        //body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
       });
     });
 
