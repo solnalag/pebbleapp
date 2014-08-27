@@ -3,7 +3,7 @@
  */
 // https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8
 var url;
-var url2;
+//var url2;
 
 simply.on('singleClick', function(e) {
   if (e.button === 'up') {
@@ -12,8 +12,8 @@ simply.on('singleClick', function(e) {
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
         title: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-         //subtitle: data.Departure.Metros.Metro[1].DisplayRow1,
-         //body: data.Departure.Metros.Metro[1].DisplayRow2,
+         subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+         body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
         });
     });
 
