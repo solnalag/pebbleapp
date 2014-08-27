@@ -5,13 +5,18 @@
 var url;
 //var url2;
 simply.text({
-  title: 'Från Brunn',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+  title: 'Startup info',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
   //subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
   //body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
 });
 
 simply.on('singleClick', function(e) {
   if (e.button === 'up') {
+
+    simply.text({
+      title: 'Test',
+    });
+    
     url = 'https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8';
         
     ajax({ url: url, type: 'json' }, function(data) {
