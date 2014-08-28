@@ -21,10 +21,11 @@ simply.on('singleClick', function(e) {
         
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
-        title: 'Hämtad data',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-        //subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-        //body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+         title: 'Titel',//data.Departure.Metros.Metro[0].StationName,
+         subtitle: 'Subtitel';//data.Departure.Metros.Metro[0].DisplayRow1,
+         body: 'Body';//data.Departure.Metros.Metro[0].DisplayRow2,
       });
+      
     });
 
   } else if (e.button === 'down') {
