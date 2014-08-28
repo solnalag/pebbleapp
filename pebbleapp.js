@@ -11,9 +11,9 @@ var url;
 //});
 
 simply.text({
-  title: 'Brunn till Slussen',
-  subtitle: 'Subtitle',
-  body: 'Body',
+  title: "Brunn till Slussen",
+  subtitle: "Subtitle",
+  body: "Body",
 });
 
 simply.on('singleClick', function(e) {
