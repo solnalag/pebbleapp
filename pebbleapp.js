@@ -2,7 +2,7 @@
  *
  */
 // https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8
-var url;
+//var url;
 //var url2;
 //simply.text({
   //title: 'Startup info',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
@@ -20,16 +20,22 @@ simply.on('singleClick', function(e) {
 
   if (e.button === "up") {
     
-    url = "https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8";
-        
-    ajax({ url: url, type: "json" }, function(data) {
+    var BrunnUrl = "https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8";
+    
+    ajax({ url: BrunnUrl, type: 'json' }, function(data) {
       simply.text({
-        //title: "Brunn till Slussen",
         subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
-        body: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
+        body: data.HafasResponse.Trip[0].SubTrip.Transport.Name
       });
+    });  
+    // ajax({ url: url, type: "json" }, function(data) {
+    //   simply.text({
+    //     //title: "Brunn till Slussen",
+    //     subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
+    //     body: data.HafasResponse.Trip[0].SubTrip.Transport.Name
+    //   });
       
-    });
+    // });
 
   }
   else if (e.button === 'down') {
