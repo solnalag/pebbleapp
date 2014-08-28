@@ -24,7 +24,7 @@ simply.on('singleClick', function(e) {
       simply.text({
          title: 'Titel',//data.Departure.Metros.Metro[0].StationName,
          subtitle: 'Subtitel',//data.Departure.Metros.Metro[0].DisplayRow1,
-         body: 'Body',//data.Departure.Metros.Metro[0].DisplayRow2,
+         body: data.Departure.Metros.Metro[0].DisplayRow2,
       });
       
     });
