@@ -4,13 +4,14 @@
 // https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8
 var url;
 //var url2;
-simply.text({
-  title: 'Startup info',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
+//simply.text({
+  //title: 'Startup info',//data.HafasResponse.Trip[1].SubTrip.Transport.Name,
   //subtitle: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
   //body: data.HafasResponse.Trip[1].SubTrip.Transport.Name,
-});
+//});
 
 simply.on('singleClick', function(e) {
+
   if (e.button === 'up') {
 
     simply.text({
@@ -28,19 +29,21 @@ simply.on('singleClick', function(e) {
       
     });
 
-  } else if (e.button === 'down') {
-  
-    url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=9192';
-    
-    ajax({ url: url, type: 'json' }, function(data) {
-      simply.text({
-        title: data.Departure.Metros.Metro[0].StationName,
-         subtitle: data.Departure.Metros.Metro[0].DisplayRow1,
-         body: data.Departure.Metros.Metro[0].DisplayRow2,
-      });
-      
-    });
   }
+  // else if (e.button === 'down') {
+  
+  //   url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=9192';
+    
+  //   ajax({ url: url, type: 'json' }, function(data) {
+  //     simply.text({
+  //       title: data.Departure.Metros.Metro[0].StationName,
+  //        subtitle: data.Departure.Metros.Metro[0].DisplayRow1,
+  //        body: data.Departure.Metros.Metro[0].DisplayRow2,
+  //     });
+      
+  //   });
+  // }
+
 });
 //   else {
 // url = 'https://api.trafiklab.se/sl/realtid/GetDepartures.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&siteId=4300';
