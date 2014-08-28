@@ -23,8 +23,8 @@ simply.on('singleClick', function(e) {
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
          title: 'Titel',//data.Departure.Metros.Metro[0].StationName,
-         subtitle: 'Subtitel';//data.Departure.Metros.Metro[0].DisplayRow1,
-         body: 'Body';//data.Departure.Metros.Metro[0].DisplayRow2,
+         subtitle: 'Subtitel',//data.Departure.Metros.Metro[0].DisplayRow1,
+         body: 'Body',//data.Departure.Metros.Metro[0].DisplayRow2,
       });
       
     });
