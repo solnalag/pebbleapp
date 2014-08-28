@@ -20,12 +20,12 @@ simply.on('singleClick', function(e) {
 
   if (e.button === "up") {
     
-    var BrunnUrl = "https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8";
+    var brunnUrl = "https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8";
     
-    ajax({ url: BrunnUrl, type: 'json' }, function(data) {
+    ajax({ url: brunnUrl, type: 'json' }, function(data) {
       simply.text({
-        subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
-        body: data.HafasResponse.Trip[0].SubTrip.Transport.Name
+        subtitle: data.HafasResponse.Trip[0].Summary.DepartureTime,
+        body: data.HafasResponse.Trip[0].Summary.Duration
       });
     });  
     // ajax({ url: url, type: "json" }, function(data) {
