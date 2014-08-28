@@ -22,7 +22,7 @@ simply.on('singleClick', function(e) {
         
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
-        title: 'Från ' + data.HafasResponse.Trip[0].Summary.Origin.#text,
+        title: 'Brunn till Slussen',
         subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
         body: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
       });
