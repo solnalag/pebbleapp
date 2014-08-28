@@ -13,10 +13,6 @@ var url;
 simply.on('singleClick', function(e) {
 
   if (e.button === 'up') {
-
-    simply.text({
-      title: 'Test',
-    });
     
     url = 'https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8';
         
