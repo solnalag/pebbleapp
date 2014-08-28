@@ -22,9 +22,9 @@ simply.on('singleClick', function(e) {
         
     ajax({ url: url, type: 'json' }, function(data) {
       simply.text({
-         title: 'Titel',//data.Departure.Metros.Metro[0].StationName,
-         subtitle: 'Subtitel',//data.Departure.Metros.Metro[0].DisplayRow1,
-         body: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
+        title: 'Från ' + data.HafasResponse.Trip[0].SubTrip.Origin.#text,
+        subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
+        body: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
       });
       
     });
