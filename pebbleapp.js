@@ -18,11 +18,11 @@ simply.text({
 
 simply.on('singleClick', function(e) {
 
-  if (e.button === 'up') {
+  if (e.button === "up") {
     
-    url = 'https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8';
+    url = "https://api.trafiklab.se/sl/reseplanerare.json?key=SLukjHHJSY0z6E8tF4RJJYiSkHgIrC0J&S=4300&Z=9192&journeyProducts=8";
         
-    ajax({ url: url, type: 'json' }, function(data) {
+    ajax({ url: url, type: "json" }, function(data) {
       simply.text({
         title: "Brunn till Slussen",
         subtitle: data.HafasResponse.Trip[0].SubTrip.Transport.Name,
